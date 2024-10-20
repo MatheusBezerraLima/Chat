@@ -12,6 +12,8 @@ wss.on("connection", (ws) =>{
 
     // função que será executada quando o usuario enviar uma mensagem para o servidor 
     ws.on("message", (data) =>{
+        console.log(data.toString());
+
         // envia a mensagem de um cliente do servidor para todos os outros
         wss.clients.forEach((client) => client.send(data.toString()))
     })
